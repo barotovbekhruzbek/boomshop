@@ -11,6 +11,7 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', './views')
 app.use(express.urlencoded({extended:true}))
+app.use(express.static('public'))
 
 app.use(AuthRoutes)
 app.use(ProductsRoutes)

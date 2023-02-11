@@ -18,17 +18,26 @@ app.use(express.json())
 
 app.use(AuthRoutes)
 app.use(ProductsRoutes)
-mongoose.set(`strictQuery`,false)
-mongoose.connect(
- process.env.MONGO_URL,
- {
- useNewUrlParser: true
+const startApp = () => {
+ try {
+  mongoose.set(`strictQuery`,false)
+  mongoose.connect(
+   process.env.MONGO_URL,
+   {
+   useNewUrlParser: true
+  
+  }, ()=> console.log('Mongo DB connected'))
+  
+  const PORT = process.env.PORT || 4100
+  
+  app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`))
+ } catch (error) {
+  console.log(error);
+ }
+}
 
-}, ()=> console.log('Mongo DB connected'))
 
-const PORT = process.env.PORT || 4100
 
-app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`))
 
 
 

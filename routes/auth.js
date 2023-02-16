@@ -1,6 +1,7 @@
 import {Router} from 'express'
 import User from '../models/User.js'
 import bcrytp from 'bcrypt'
+import { generateJwtToken } from '../services/token.js'
 const router = Router()
 
 router.get('/login', (req, res) => {
@@ -68,6 +69,7 @@ if(candidate) {
 		password: hashedPassword,
 	}
 	const user = await User.create(userData)
+	const token = generateJwtToken(user._id)
 	console.log(user);
 	res.redirect('/')
 })

@@ -15,7 +15,7 @@ router.get('/register', (req, res) => {
 	res.render('register', {
 		title: 'Register | Sammi',
 		isRegister: true,
-		registerError: 'Error'
+		registerError: req.flash("registerError"),
 	})
 })
 
@@ -34,6 +34,7 @@ if(!existUser) {
 	return
 	
 }
+
 const isPassEqual = await bcrytp.compare(password, existUser.password)
 if(!isPassEqual)  {
 	req.flash('loginError', 'Password Wrong')
@@ -53,6 +54,12 @@ router.post('/register', async (req, res) => {
 		res.redirect('/register')
 		return
 	}
+	const candidate =await User.findOne({email})
+if(candidate) {
+	req.flash('registerError', 'User already exist')
+	res.redirect('/register')
+	return
+}
 	const hashedPassword = await bcrytp.hash(password,10)
 	const userData = {
 		firstName: firstname,

@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/login', (req, res) => {
 	res.render('login', {
-		title: 'Login | Sammi',
+		title: 'Login | bexa',
 		isLogin: true,
 		loginError: req.flash("loginError")
 	})
@@ -13,7 +13,7 @@ router.get('/login', (req, res) => {
 
 router.get('/register', (req, res) => {
 	res.render('register', {
-		title: 'Register | Sammi',
+		title: 'Register | bexa',
 		isRegister: true,
 		registerError: req.flash("registerError"),
 	})

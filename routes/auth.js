@@ -7,6 +7,7 @@ router.get('/login', (req, res) => {
 	res.render('login', {
 		title: 'Login | Sammi',
 		isLogin: true,
+		loginError: req.flash("loginError")
 	})
 })
 
@@ -14,19 +15,31 @@ router.get('/register', (req, res) => {
 	res.render('register', {
 		title: 'Register | Sammi',
 		isRegister: true,
+		registerError: 'Error'
 	})
 })
 
 router.post('/login', async (req, res) => {
-const existUser = await User.findOne({email:req.body.email})
+	const {email,password}  = req.body
+
+	if(!email || !password) {
+		req.flash('loginError', 'All fields is required')
+		res.redirect('/login')
+		return
+	}
+const existUser = await User.findOne({email})
 if(!existUser) {
-	console.log("user not found")
-	return false
-}
-const isPassEqual = await bcrytp.compare(req.body.password, existUser.password)
-if(!isPassEqual)  {
-	console.log('password wrong');
+	req.flash('loginError', 'User not found')
+	res.redirect('/login')
 	return
+	
+}
+const isPassEqual = await bcrytp.compare(password, existUser.password)
+if(!isPassEqual)  {
+	req.flash('loginError', 'Password Wrong')
+	res.redirect('/login')
+	return
+	
 }
 
 console.log(existUser);
@@ -34,11 +47,17 @@ console.log(existUser);
 })
 
 router.post('/register', async (req, res) => {
-	const hashedPassword = await bcrytp.hash(req.body.password,10)
+	const {firstname,lastname,email,password} = req.body
+	if(!firstname || !lastname || !email || !password) {
+		req.flash('registerError', 'All fields is required')
+		res.redirect('/register')
+		return
+	}
+	const hashedPassword = await bcrytp.hash(password,10)
 	const userData = {
-		firstName: req.body.firstname,
-		lastName: req.body.lastname,
-		email: req.body.email,
+		firstName: firstname,
+		lastName: lastname,
+		email: email,
 		password: hashedPassword,
 	}
 	const user = await User.create(userData)

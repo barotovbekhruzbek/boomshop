@@ -43,7 +43,8 @@ if(!isPassEqual)  {
 	return
 	
 }
-
+const token = generateJwtToken(existUser._id)
+res.cookie("token",token, {httpOnly:true ,secure:true})
 console.log(existUser);
 	res.redirect('/')
 })
@@ -70,6 +71,7 @@ if(candidate) {
 	}
 	const user = await User.create(userData)
 	const token = generateJwtToken(user._id)
+	res.cookie("token",token, {httpOnly:true ,secure:true})
 	console.log(user);
 	res.redirect('/')
 })

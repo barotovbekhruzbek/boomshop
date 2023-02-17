@@ -19,7 +19,10 @@ router.get('/register', (req, res) => {
 		registerError: req.flash("registerError"),
 	})
 })
-
+router.get("/logout", (req,res)=> {
+	res.clearCookie("token")
+	res.send('Logout')
+})
 router.post('/login', async (req, res) => {
 	const {email,password}  = req.body
 

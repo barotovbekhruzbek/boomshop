@@ -11,7 +11,7 @@ router.get('/login', (req, res) => {
 		return
 	}
 	res.render('login', {
-		title: 'Login | bexa',
+		title: 'Login | Sammi',
 		isLogin: true,
 		loginError: req.flash('loginError'),
 	})
@@ -23,7 +23,7 @@ router.get('/register', (req, res) => {
 		return
 	}
 	res.render('register', {
-		title: 'Register | bexa',
+		title: 'Register | Sammi',
 		isRegister: true,
 		registerError: req.flash('registerError'),
 	})

@@ -3,23 +3,21 @@ const router = Router()
 
 router.get('/', (req, res) => {
 	res.render('index', {
-		title: 'boom shoop || bexa',
-		token: true
-
+		title: 'Boom shop | Sammi',
 	})
 })
 
 router.get('/products', (req, res) => {
 	res.render('products', {
-		title: "products",
-		isProducts:true
+		title: 'Products | Sammi',
+		isProducts: true,
 	})
 })
 
 router.get('/add', (req, res) => {
 	res.render('add', {
-		title: 'add products',
-		isAdd: true
+		title: 'Add products',
+		isAdd: true,
 	})
 })
 

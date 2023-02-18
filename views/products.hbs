@@ -1,1 +1,22 @@
-<h1>Products</h1>
+{{#if myProducts.length}}
+	<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
+		{{#each myProducts}}
+			<div class='col'>
+				<div class='card shadow-sm'>
+					<img src='{{image}}' />
+					<div class='card-body'>
+						<p class='card-text fw-bold'>{{title}}</p>
+						<div class='d-flex justify-content-end align-items-center'>
+							<small class='text-muted fs-5'>{{price}}.00$</small>
+					</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		{{/each}}
+	</div>
+{{else}}
+	<p>No product</p>
+{{/if}}

@@ -1,7 +1,9 @@
 {{!-- <img src="{{product.image}}" alt="" class="w-80 h-50" > --}}
 
 <div class="product-card">
-  <img src="{{product.image}}" alt="Product Image">
+ <div class="image-zoom">
+   <img src="{{product.image}}" alt="Product Image">
+ </div>
  
   <h2 class="product-title">{{product.title}}</h2>
    <p class="product-description">{{formatDate createdAt}}</p>
@@ -9,3 +11,23 @@
   <span class="product-price">$ {{product.price}}</span>
   <button class="add-to-cart">Купить</button>
 </div>
+
+
+<script>
+ const imageZoom = document.querySelector('.image-zoom');
+const image = imageZoom.querySelector('img');
+
+imageZoom.addEventListener('mousemove', e => {
+  const boundingRect = imageZoom.getBoundingClientRect();
+  const mouseX = e.clientX - boundingRect.left;
+  const mouseY = e.clientY - boundingRect.top;
+  const xPercent = mouseX / boundingRect.width * 100;
+  const yPercent = mouseY / boundingRect.height * 100;
+  image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+});
+
+imageZoom.addEventListener('mouseleave', () => {
+  image.style.transformOrigin = 'center center';
+});
+
+</script>

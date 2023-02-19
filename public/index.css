@@ -80,3 +80,15 @@
 .image-zoom:hover img {
 	transform: scale(1.5);
 }
+.delete-btn {
+	border: none;
+	outline: none;
+
+
+	background-color: transparent;
+
+}
+.delete-btn:hover {
+	color: white;
+	background-color: rgb(220, 53, 69);
+}

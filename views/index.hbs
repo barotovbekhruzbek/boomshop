@@ -15,14 +15,18 @@
 
 					<div class='card-footer'>
 						<div class='btn-group btn-group-sm' role='group' aria-label='Basic example'>
-							<a type='button' class='btn btn-outline-primary' href="/product/{{_id}}">Detail</a>
+							<a type='button' class='btn btn-outline-primary ' href="/product/{{_id}}">Detail</a>
 
 										
 			{{#if @root.token}}
 				
 					{{#ifequal user @root.userId}}
-								<a type='button' class='btn btn-outline-secondary' href="/edit-product/{{_id}}">Edit</a>
-							<button type='button' class='btn btn-outline-danger'>Delete</button>
+								<a type='button' class='btn btn-outline-secondary m-0' href="/edit-product/{{_id}}">Edit</a>
+							
+							<form action="/delete-product/{{_id}}" method="post" class='btn btn-outline-danger m-0'>
+								<button type='submit' class="btn-outline-danger delete-btn " >Delete</button>
+						</form>
+				
 
 			{{/ifequal}}
 	

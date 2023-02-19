@@ -42,6 +42,15 @@ res.render("product", {
 })
 })
 
+router.get('/edit-product/:id',async (req,res) => {
+	const id = req.params.id
+	const product = await Product.findById(id).populate("user").lean()
+
+	res.render("edit-product", {
+		product:product
+	})
+})
+
 
 router.post('/add-products', userMiddleware, async (req,res) => {
 const {title,description,image,price} = req.body
@@ -57,4 +66,16 @@ await Product.create({...req.body,user:req.userId})
 	res.redirect('/')
 })
 
+
+router.post('/edit-product/:id',async(req,res)=> {
+	const {title,description,image,price} = req.body
+	const id = req.params.id
+	if(!title || !description || !image || !price) {
+		req.flash('errorEditProduct', 'All fields is required')
+		res.redirect('/add')
+		return
+	}
+ await Product.findByIdAndUpdate(id,req.body,{new:true})
+res.redirect('/products')
+})
 export default router

@@ -1,1 +1,33 @@
-<img src="{{product.image}}" alt="" class="w-80 h-50" >
+{{!-- <img src="{{product.image}}" alt="" class="w-80 h-50" > --}}
+
+<section class="product">
+	<div class="product__photo">
+		<div class="photo-container">
+			<div class="photo-main">
+				<div class="controls">
+					<i class="material-icons">share</i>
+					<i class="material-icons">favorite_border</i>
+				</div>
+				<img src="{{product.image}}" alt="green apple slice">
+			</div>
+			<div class="photo-album">
+
+			</div>
+		</div>
+	</div>
+	<div class="product__info">
+		<div class="title">
+			<h1>{{product.title}}</h1>
+			<p>{{formatDate createdAt}}</p>
+		</div>
+		<div class="price">
+			$ <span>{{product.price}}</span>
+		</div>
+		
+		<div class="description">
+    <p>{{product.description}}</p>
+		</div>
+		<button class="buy--btn">Купит</button>
+	</div>
+</section>
+

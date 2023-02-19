@@ -47,7 +47,8 @@ router.get('/edit-product/:id',async (req,res) => {
 	const product = await Product.findById(id).populate("user").lean()
 
 	res.render("edit-product", {
-		product:product
+		product:product,
+		errorEditProduct:req.flash("errorEditProduct")
 	})
 })
 

@@ -5,90 +5,103 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 100%;
-	color: white;
+	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 20px;
-	
 }
 .avatar p {
 	padding: 0;
 	margin: 0;
 }
-.product-card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 800px;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin: 0 auto;
-}
 
-.product-card img {
+.product-image {
 	width: 100%;
-	max-width: 500px;
-	margin-bottom: 30px;
-	margin-left: 100px;
+	height: 70vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
-
-.product-title {
-	font-size: 24px;
-	margin: 0;
-	text-align: center;
-}
-
-.product-description {
-	font-size: 16px;
-	margin: 10px 0;
-	text-align: center;
-}
-
-.product-price {
-	font-size: 20px;
-	font-weight: bold;
-	margin: 10px 0;
-}
-
-.add-to-cart {
-	background-color: #4CAF50;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
-}
-.image-zoom {
-
-	padding: 3rem;
-	position: relative;
-	overflow: hidden;
-	width: 800px;
-	height: 500px;
-}
-
-.image-zoom img {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	transition: transform 0s linear;
-}
-
-.image-zoom:hover img {
-	transform: scale(1.5);
-}
 .delete-btn {
 	border: none;
 	outline: none;
-
-
 	background-color: transparent;
-
 }
+
 .delete-btn:hover {
-	color: white;
-	background-color: rgb(220, 53, 69);
+	color: #fff;
+}
+
+.mt-10rem {
+	margin-top: 10rem;
+}
+
+.mt-5rem {
+	margin-top: 5rem;
+}
+
+/*======================
+    404 page
+=======================*/
+
+.page_404 img {
+	width: 100%;
+}
+.four_zero_four_bg {
+	background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+	height: 400px;
+	background-position: center;
+}
+.four_zero_four_bg h1 {
+	font-size: 80px;
+}
+.four_zero_four_bg h3 {
+	font-size: 80px;
+}
+.link_404 {
+	color: #fff !important;
+	padding: 10px 20px;
+	background: #39ac31;
+	margin: 20px 0;
+	display: inline-block;
+}
+.contant_box_404 {
+	margin-top: -50px;
+}
+.mt-10rem {
+	margin-top: 10rem;
+}
+
+.mt-5rem {
+	margin-top: 5rem;
+}
+
+/*======================
+    404 page
+=======================*/
+
+.page_404 img {
+	width: 100%;
+}
+.four_zero_four_bg {
+	background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+	height: 400px;
+	background-position: center;
+}
+.four_zero_four_bg h1 {
+	font-size: 80px;
+}
+.four_zero_four_bg h3 {
+	font-size: 80px;
+}
+.link_404 {
+	color: #fff !important;
+	padding: 10px 20px;
+	background: #39ac31;
+	margin: 20px 0;
+	display: inline-block;
+}
+.contant_box_404 {
+	margin-top: -50px;
 }
